@@ -1,0 +1,55 @@
+<form [formGroup]="signUpForm" name="form" (ngSubmit)="onSubmit();" novalidate>
+<div class="card text-center">
+  <h2>SignUp</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+        <label>Email :</label>
+			</div>
+      <div class="col">
+        <input formControlName="email" type="email" placeholder="Email" required>
+      </div>
+		</div>
+    <div class="row">
+			<div class="col">
+        <label>password :</label>
+			</div>
+      <div class="col">
+        <input formControlName="password" type="password" placeholder="Password" required>
+      </div>
+		</div>
+    <div class="row">
+			<div class="col">
+        <label>Confirm password :</label>
+			</div>
+      <div class="col">
+        <input formControlName="cnfrmpassword" type="password" placeholder="Password" required>
+      </div>
+		</div>
+    <div class="row">
+			<div class="col">
+        <label for="gender">Gender :</label>
+			</div>
+      <div class="col">
+        <select formControlName="gender" id="gender">
+          <option value="" selected="true" disabled>Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+		</div>
+    <div class="row">
+      <div class="col">
+        <input #acceptCheck formControlName="accepted" type="checkbox"> Accept
+      </div>
+		</div>
+    <div class="row">
+      <div class="col">
+        <button type="button">Cancel</button>
+        <button [disabled]="!(acceptCheck.checked && signUpForm.valid)" type="submit">Submit</button>
+      </div>
+		</div>
+	</div>
+</div>
+</form>
